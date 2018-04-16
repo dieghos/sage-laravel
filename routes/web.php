@@ -18,3 +18,31 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('users', 'UserController')->except(['create', 'store'])->names([
+   'index' => 'user-list',
+   'show' => 'user-details',
+   'edit' => 'user-edit',
+   'update' => 'user-update',
+   'destroy' => 'user-destroy'
+  ])->middleware('role');
+
+Route::resource('roles','RoleController')->names([
+  'index'=>'role-list',
+  'show'=>'role-details',
+  'create'=>'role-create',
+  'store'=>'role-store',
+  'edit'=>'role-edit',
+  'update'=>'role-update',
+  'destroy'=>'role-destroy'
+])->middleware('role');
+
+Route::resource('files','FileController')->names([
+  'index'=>'file-list',
+  'show'=>'file-details',
+  'create'=>'file-create',
+  'store'=>'file-store',
+  'edit'=>'file-edit',
+  'update'=>'file-update',
+  'destroy'=>'file-destroy'
+])->middleware('role');

@@ -13,18 +13,23 @@ class PermissionsTableSeeder extends Seeder
     {
 
       DB::table('permissions')->insert([
-          'name' => 'administrar-usuarios',
+          'name' => 'Administrar usuarios',
           'label' => 'CRUD de usuarios.',
       ]);
 
       DB::table('permissions')->insert([
-          'name' => 'administrar-roles',
+          'name' => 'Administrar roles',
           'label' => 'Administracion de los roles.',
       ]);
 
       DB::table('permissions')->insert([
-          'name' => 'administrar-permisos',
+          'name' => 'Administrar permisos',
           'label' => 'Administracion de los permisos.',
+      ]);
+
+      DB::table('permissions')->insert([
+          'name' => 'Administrar expedientes',
+          'label' => 'Crear, editar y borrar expedientes.',
       ]);
     }
 }

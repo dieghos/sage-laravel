@@ -12,8 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <a href="{{ route('file-list') }}">Expedientes</a>
                 </div>
             </div>
         </div>

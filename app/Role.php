@@ -1,19 +1,36 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-use App\Permission;
-
 class Role extends Model
 {
+    protected $fillable = [
+        'name', 'label'
+    ];
+    /**
+     * A role may be given various permissions.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function permissions()
     {
-      return $this->belongsToMany(Permission::class);
+        return $this->belongsToMany(Permission::class);
+    }
+    /**
+     * Grant the given permission to a role.
+     *
+     * @param  Permission $permission
+     * @return mixed
+     */
+    public function givePermissionTo(Permission $permission)
+    {
+        return $this->permissions()->save($permission);
     }
 
-    public givePermissionTo(Permission $permission)
-    {
-      return $this->permissions()->save($permission);
+    public function hasPermissions($permission){
+      if(is_string($permission)){
+        return $this->permissions->contains('name',$permission);
+      }
+
+      return !! $permission->intersect($this->permissions)->count();
     }
 }

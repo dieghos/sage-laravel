@@ -20,5 +20,10 @@ class UsersTableSeeder extends Seeder
           'email' => 'admin@sage.com',
           'password' => bcrypt('superadmin'),
       ]);
+
+      DB::table('role_user')->insert([
+        'role_id' => App\Role::where('name','SuperAdministrador')->value('id'),
+        'user_id' => App\User::where('email','admin@sage.com')->value('id'),
+      ]);
     }
 }

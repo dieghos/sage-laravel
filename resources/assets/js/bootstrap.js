@@ -8,6 +8,7 @@ window.Popper = require('popper.js').default;
  * code may be modified to fit the specific needs of your application.
  */
 
+
 try {
     window.$ = window.jQuery = require('jquery');
 
@@ -54,3 +55,5 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+var magnificPopup = require('magnific-popup');
