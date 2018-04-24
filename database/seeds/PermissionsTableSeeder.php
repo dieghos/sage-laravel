@@ -31,5 +31,10 @@ class PermissionsTableSeeder extends Seeder
           'name' => 'Administrar expedientes',
           'label' => 'Crear, editar y borrar expedientes.',
       ]);
+
+      DB::table('permissions')->insert([
+          'name' => 'Asignar trabajos',
+          'label' => 'Asignar trabajos al personal.',
+      ]);
     }
 }

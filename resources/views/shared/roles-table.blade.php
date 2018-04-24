@@ -7,9 +7,11 @@
     <tr>
       <td>{{$role->name}}</td>
       <td class="text-capitalize">
-        @foreach ($role->permissions()->get() as $key => $permission)
-          {{ $permission->name.' ' }}
-        @endforeach
+        <ul>
+          @foreach ($role->permissions()->get() as $key => $permission)
+            <li>{{ $permission->name.' ' }}</li>
+          @endforeach
+        </ul>
       </td>
     </tr>
   @endforeach

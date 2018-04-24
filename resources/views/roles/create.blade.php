@@ -25,8 +25,8 @@
         </div>
       @endforeach
       <p class="text-center mt-2">
-        <button class="btn btn-primary" type="submit">Crear</button>
-        <a class="btn btn-light" href="{{ route('role-list') }}">Volver</a>
+        <button class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i> {{__('Crear')}}</button>
+        <a class="btn btn-light" href="{{ route('role-list') }}"><i class="fas fa-arrow-left"></i> {{__('Volver')}}</a>
       </p>
     </form>
   </div>

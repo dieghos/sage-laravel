@@ -23,8 +23,8 @@
 
     </dd>
     <p class="text-center mt-2">
-      <a class="btn btn-lg btn-primary" href="{{ route('role-edit', $role->id ) }}">Editar</a>
-      <a class="btn btn-lg btn-light" href="{{ route('role-list') }}">Volver</a>
+      <a class="btn btn-lg btn-primary" href="{{ route('role-edit', $role->id ) }}"><i class="fas fa-edit"></i> {{__('Editar')}}</a>
+      <a class="btn btn-lg btn-light" href="{{ route('role-list') }}"><i class="fas fa-arrow-left"></i> {{__('Volver')}}</a>
     </p>
   </div>
 @endsection

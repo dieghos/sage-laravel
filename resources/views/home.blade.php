@@ -12,7 +12,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{ route('file-list') }}">Expedientes</a>
+                    @if ( count(Auth::user()->roles)==0)
+                      Debe ser autorizado por un administrador
+                    @else
+                      Guía de usuario.
+                    @endif
                 </div>
             </div>
         </div>

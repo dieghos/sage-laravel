@@ -23,4 +23,7 @@ class File extends Model
     public function assignDocument(Document $document){
       return $this->documents()->save($document);
     }
+    public function users(){
+      return $this->belongsToMany(User::class);
+    }
 }

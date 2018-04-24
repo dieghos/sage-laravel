@@ -1,3 +1,11 @@
+import fontawesome from '@fortawesome/fontawesome'
+import regular from '@fortawesome/fontawesome-free-regular'
+import solid from '@fortawesome/fontawesome-free-solid'
+import brands from '@fortawesome/fontawesome-free-brands'
+
+fontawesome.library.add(regular);
+fontawesome.library.add(solid);
+fontawesome.library.add(brands);
 
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
@@ -13,7 +21,9 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) {
+  console.log(e);
+}
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -57,3 +67,5 @@ if (token) {
 // });
 
 var magnificPopup = require('magnific-popup');
+
+var moment = require('moment').locale('es');

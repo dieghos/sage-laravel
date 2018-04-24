@@ -35,7 +35,7 @@
   top: 60px;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   padding: 20px 0;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
@@ -93,4 +93,11 @@
   background:#c00;
   overflow:hidden;
   text-indent:-9999px;
+}
+
+.borderless table {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
 }

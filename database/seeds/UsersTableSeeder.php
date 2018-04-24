@@ -17,13 +17,13 @@ class UsersTableSeeder extends Seeder
           'legajo' => '0',
           'apellido' => 'SAGE',
           'nombres' => 'User',
-          'email' => 'admin@sage.com',
+          'email' => 'enlaces.sage@gmail.com',
           'password' => bcrypt('superadmin'),
       ]);
 
       DB::table('role_user')->insert([
         'role_id' => App\Role::where('name','SuperAdministrador')->value('id'),
-        'user_id' => App\User::where('email','admin@sage.com')->value('id'),
+        'user_id' => App\User::where('email','enlaces.sage@gmail.com')->value('id'),
       ]);
     }
 }

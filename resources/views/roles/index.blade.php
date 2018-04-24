@@ -3,7 +3,7 @@
 @section('content')
   <div class="container-fluid">
     <div class="text-right mb-4">
-      <a href="{{ route('role-create') }}" class="btn btn-lg btn-primary">Nuevo</a>
+      <a href="{{ route('role-create') }}" class="btn btn-lg btn-primary"><i class="fas fa-plus"></i> {{__('Nuevo')}}</a>
     </div>
     <table class="table">
       <caption>
@@ -37,9 +37,9 @@
                 @csrf
                 @method('DELETE')
                 <a class="btn btn-primary"
-                href="{{ route('role-details', $role )}}">Detalles</a>
+                href="{{ route('role-details', $role )}}"><i class="fas fa-info-circle"></i> {{__('Detalles')}}</a>
                 <button type="button" id="delete"
-                class="btn btn-danger" data-role = "{{'delete-'.$role->id }}" >Borrar</button>
+                class="btn btn-danger" data-role = "{{'delete-'.$role->id }}"><i class="far fa-trash-alt"></i> {{__('Borrar')}}</button>
               </form>
             </td>
           </tr>

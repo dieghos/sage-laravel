@@ -10387,7 +10387,7 @@ a.text-dark:focus {
   top: 60px;
   bottom: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10;
   padding: 20px 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -10449,3 +10449,12 @@ a.text-dark:focus {
   text-indent: -9999px;
 }
 
+.borderless table {
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIvY3NzL2FwcC5jc3MiLCJzb3VyY2VSb290IjoiIn0=*/

@@ -30,8 +30,8 @@
         </div>
       @endforeach
       <p class="text-center mt-2">
-        <button class="btn btn-primary" type="submit">Guardar</button>
-        <a class="btn btn-light" href="{{ route('role-details', $role) }}">Volver</a>
+        <button class="btn btn-primary" type="submit"><i class="far fa-save"></i> {{__('Guardar')}}</button>
+        <a class="btn btn-light" href="{{ route('role-details', $role) }}"><i class="fas fa-arrow-left"></i> {{__('Volver')}}</a>
       </p>
     </form>
   </div>

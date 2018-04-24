@@ -13,9 +13,9 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$role)
     {
-        if(!$request->user()->hasRole('SuperAdministrador')){
+        if(!$request->user()->hasRole($role)){
           return redirect('home');
         }
         return $next($request);

@@ -87,7 +87,6 @@ class RoleController extends Controller
     {
         $role->name = $request->name;
         $role->label = $request->label;
-
         $role->permissions()->detach();
         $role->save();
         if($request->has('permission')){
@@ -109,6 +108,6 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-      dd($role);
+      $role->destroy();
     }
 }

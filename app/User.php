@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPass;
 
 class User extends Authenticatable
 {
@@ -26,6 +27,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPass($token));
+    }
+
+    public function files(){
+      return $this->belongsToMany(File::class);
+    }
+
+
+    public function assignFile(File $file){
+        return $this->files()->save($file);
+    }
+
+
 
 
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\File;
 use App\Document;
+use App\Http\Requests\FilePost;
 
 class FileController extends Controller
 {
@@ -14,9 +15,15 @@ class FileController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request)
   {
-    $files = File::paginate(10);
+    $query = $request->query('q');
+    if($query){
+      $files = File::where('code','like','%'.$query.'%')
+      ->orWhere('description','like','%'.$query.'%')->paginate(5);
+    }else{
+      $files = File::paginate(5);
+    }
     return view('files.index',compact('files'));
   }
 
@@ -35,9 +42,10 @@ class FileController extends Controller
     return view('files.create');
   }
 
-  public function store(Request $request)
+  public function store(FilePost $request)
   {
-        $files = File::create($request->all());
+        $data = $request->validated();
+        $files = File::create($data);
         if($request->hasFile('filename'))
          {
             foreach($request->filename as $file)
@@ -53,4 +61,32 @@ class FileController extends Controller
          return redirect('/files');
   }
 
+  public function update(FilePost $request, File $file){
+    $file->update($request->validated());
+    if($request->hasFile('filename'))
+     {
+        foreach($request->filename as $doc)
+        {
+            $file->assignDocument(
+              Document::create([
+                'type'=> $doc->getClientOriginalExtension(),
+                'path'=> $doc->store('public/docs'),
+              ])
+            );
+        }
+     }
+     return view('files.show',compact('file'));
+  }
+
+  public function status(Request $request){
+    $query = $request->query('q');
+    if($query){
+      $files = File::where('code','like','%'.$query.'%')
+      ->orWhere('description','like','%'.$query.'%')->paginate(15);
+    }else{
+      $files = File::paginate(15);
+    }
+    $states = ['Ingresado','Trabajando','Para la firma','Finalizado'];
+    return view('files.status',compact('files','states'));
+  }
 }

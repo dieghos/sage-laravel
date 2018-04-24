@@ -86,8 +86,8 @@
           @auth
             <a href="{{ url('/home') }}">Home</a>
           @else
-            <a href="{{ route('login')}}">Iniciar Sesión</a>
-            <a href="{{ route('register')}}">Registrarse</a>
+            <a href="{{ route('login')}}"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a>
+            <a href="{{ route('register')}}"><i class="fas fa-user-plus"></i> Registrarse</a>
           @endauth
         </div>
         <div class="content" id="app">

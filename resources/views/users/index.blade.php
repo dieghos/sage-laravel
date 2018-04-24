@@ -36,9 +36,9 @@
                     @csrf
                     @method('DELETE')
                     <a class="btn btn-primary"
-                    href="{{ route('user-details', $user )}}">Detalles</a>
+                    href="{{ route('user-details', $user )}}"><i class="fas fa-info-circle"></i> {{__('Detalles')}}</a>
                     <button type="button" id="delete" data-user="{{'delete-'.$user->id}}"
-                    class="btn btn-danger" >Borrar</button>
+                    class="btn btn-danger"><i class="far fa-trash-alt"></i> {{__('Borrar')}}</button>
                   </form>
                 </td>
               </tr>
