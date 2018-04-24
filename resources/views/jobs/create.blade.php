@@ -12,7 +12,7 @@
             @if (request()->input('q'))
               <button class="btn btn-outline-secondary" id="cleaner" type="button">Limpiar filtro</button>
             @endif
-            <button class="btn btn-outline-secondary" type="submit">Filtrar</button>
+            <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i> {{__('Filtrar')}}</button>
           </div>
         </div>
       </form>
